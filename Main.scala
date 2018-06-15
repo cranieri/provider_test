@@ -15,7 +15,7 @@ import java.io._
 case class Payment(id: Int, amount: Int)
 
 class Payments(tag: Tag) extends Table[(Int, Int)](tag, "payments") {
-  def id = column[Int]("id")
+  def id = column[Int]("id",O.PrimaryKey, O.AutoInc)
   def amount = column[Int]("amount")
   def * = (id, amount)
 }
@@ -59,6 +59,8 @@ import play.api.libs.json._
 import scala.concurrent.ExecutionContext.Implicits.global
 case class Person(name: String, age: Int)
 
+
+
 object RabbitmqConsumer extends App {
   implicit val actorSystem = ActorSystem("such-system")
   val rabbitControl = actorSystem.actorOf(Props[RabbitControl])
@@ -67,8 +69,11 @@ object RabbitmqConsumer extends App {
   implicit val personFormat = Json.format[Payment]
   implicit val recoveryStrategy = RecoveryStrategy.none
 
+
   val subscriptionRef = Subscription.run(rabbitControl) {
     import Directives._
+
+    val db = Database.forConfig("mysqlDB")
     // A qos of 3 will cause up to 3 concurrent messages to be processed at any given time.
     channel(qos = 3) {
       consume(topic(queue("such-message-queue"), List("some-topic.#"))) {
@@ -76,6 +81,10 @@ object RabbitmqConsumer extends App {
           /* do work; this body is executed in a separate thread, as
              provided by the implicit execution context */
           println(s"""A payment with amount '${payment.amount}' was received over '${key}'.""")
+
+          val payments = TableQuery[Payments]
+          Await.result(db.run(DBIO.seq(payments += (0, payment.amount))), 10.seconds)
+
           ack
         }
       }
