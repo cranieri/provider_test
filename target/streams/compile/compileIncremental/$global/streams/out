@@ -1,0 +1,27 @@
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed:Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(/Users/cosimoranieri/src/provider_test/Main.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(com.lightbend.akka.sample.Main.TickActor, com.lightbend.akka.sample.Main, com.lightbend.akka.sample.Payments, com.lightbend.akka.sample.Payment)[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll sources are invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0mRecompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0m[0minfo[0m] [0m[0mCompiling 1 Scala source to /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.1.7:compile for Scala 2.12.6[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.1.7:compile for Scala 2.12.6[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 5c01ab7a for Scala compiler version 2.12.6[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/cosimoranieri/.sbt/boot/scala-2.12.6/lib/scala-library.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/cosimoranieri/src/provider_test/target/scala-2.12/classes:/Users/cosimoranieri/.ivy2/cache/org.scala-lang.modules/scala-java8-compat_2.12/bundles/scala-java8-compat_2.12-0.8.0.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe.akka/akka-testkit_2.12/jars/akka-testkit_2.12-2.5.1.jar:/Users/cosimoranieri/.ivy2/cache/com.lightbend.akka/akka-stream-alpakka-slick_2.12/jars/akka-stream-alpakka-slick_2.12-0.19.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe.akka/akka-stream_2.12/jars/akka-stream_2.12-2.5.12.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/jars/akka-actor_2.12-2.5.12.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe/config/bundles/config-1.3.2.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe.akka/akka-protobuf_2.12/jars/akka-protobuf_2.12-2.5.12.jar:/Users/cosimoranieri/.ivy2/cache/org.reactivestreams/reactive-streams/jars/reactive-streams-1.0.2.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe/ssl-config-core_2.12/bundles/ssl-config-core_2.12-0.2.3.jar:/Users/cosimoranieri/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.1.0.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe.slick/slick_2.12/bundles/slick_2.12-3.2.3.jar:/Users/cosimoranieri/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.25.jar:/Users/cosimoranieri/.ivy2/cache/com.typesafe.slick/slick-hikaricp_2.12/bundles/slick-hikaricp_2.12-3.2.1.jar:/Users/cosimoranieri/.ivy2/cache/com.zaxxer/HikariCP/bundles/HikariCP-2.5.1.jar:/Users/cosimoranieri/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.34.jar:/Users/cosimoranieri/.ivy2/cache/org.slf4j/slf4j-nop/jars/slf4j-nop-1.6.4.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 2.820725224 s[0m
+[0m[[0m[0minfo[0m] [0m[0mDone compiling.[0m

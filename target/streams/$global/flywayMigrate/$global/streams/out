@@ -1,0 +1,56 @@
+[0m[[0m[0minfo[0m] [0m[0mFlyway Community Edition 5.0.7 by Boxfuse[0m
+[0m[[0m[0minfo[0m] [0m[0mDatabase: jdbc:mysql://mysql:3306/test_provider (MySQL 5.5)[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for SQL callbacks ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for classpath resources at 'classpath:db/migration' (Prefix: '', Suffixes: '.sql')[0m
+[0m[[0m[0mdebug[0m] [0m[0mDetermining location urls for classpath:db/migration using ClassLoader java.net.URLClassLoader@26c5d9fe ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning URL: file:/Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning starting at classpath root in filesystem: /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for resources in path: /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration (db/migration)[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound resource: db/migration/V1.2__Add_user.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound resource: db/migration/V1.3__Add_payment.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for filesystem resources at 'src/main/resources/db/migration' (Prefix: '', Suffixes: '.sql')[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for resources in path: src/main/resources/db/migration (src/main/resources/db/migration)[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound filesystem resource: src/main/resources/db/migration/V1.2__Add_user.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound filesystem resource: src/main/resources/db/migration/V1.3__Add_payment.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mValidating migrations ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for classpath resources at 'classpath:db/migration' (Prefix: 'V', Suffixes: '.sql')[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning URL: file:/Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound resource: db/migration/V1.2__Add_user.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound resource: db/migration/V1.3__Add_payment.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for classpath resources at 'classpath:db/migration' (Prefix: 'R', Suffixes: '.sql')[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning URL: file:/Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiltering out resource: db/migration/V1.2__Add_user.sql (filename: V1.2__Add_user.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiltering out resource: db/migration/V1.3__Add_payment.sql (filename: V1.3__Add_payment.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for filesystem resources at 'src/main/resources/db/migration' (Prefix: 'V', Suffixes: '.sql')[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for resources in path: src/main/resources/db/migration (src/main/resources/db/migration)[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound filesystem resource: src/main/resources/db/migration/V1.2__Add_user.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound filesystem resource: src/main/resources/db/migration/V1.3__Add_payment.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for filesystem resources at 'src/main/resources/db/migration' (Prefix: 'R', Suffixes: '.sql')[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for resources in path: src/main/resources/db/migration (src/main/resources/db/migration)[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiltering out resource: src/main/resources/db/migration/V1.2__Add_user.sql (filename: V1.2__Add_user.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiltering out resource: src/main/resources/db/migration/V1.3__Add_payment.sql (filename: V1.3__Add_payment.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning for classes at 'classpath:db/migration' (Implementing: 'org.flywaydb.core.api.migration.jdbc.JdbcMigration')[0m
+[0m[[0m[0mdebug[0m] [0m[0mScanning URL: file:/Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiltering out resource: db/migration/V1.2__Add_user.sql (filename: V1.2__Add_user.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiltering out resource: db/migration/V1.3__Add_payment.sql (filename: V1.3__Add_payment.sql)[0m
+[0m[[0m[0minfo[0m] [0m[0mSuccessfully validated 2 migrations (execution time 00:00.021s)[0m
+[0m[[0m[0mdebug[0m] [0m[0mSchema `test_provider` already exists. Skipping schema creation.[0m
+[0m[[0m[0minfo[0m] [0m[0mCurrent version of schema `test_provider`: 1.2[0m
+[0m[[0m[0mdebug[0m] [0m[0mParsing V1.3__Add_payment.sql ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mFound statement at line 2: CREATE TABLE payments ([0m
+[0m[[0m[0mdebug[0m] [0m[0m  id VARCHAR(25) NOT NULL,[0m
+[0m[[0m[0mdebug[0m] [0m[0m  amount VARCHAR(25) NOT NULL,[0m
+[0m[[0m[0mdebug[0m] [0m[0m  PRIMARY KEY(id)[0m
+[0m[[0m[0mdebug[0m] [0m[0m)[0m
+[0m[[0m[0minfo[0m] [0m[0mMigrating schema `test_provider` to version 1.3 - Add payment[0m
+[0m[[0m[0mdebug[0m] [0m[0mExecuting SQL: CREATE TABLE payments ([0m
+[0m[[0m[0mdebug[0m] [0m[0m  id VARCHAR(25) NOT NULL,[0m
+[0m[[0m[0mdebug[0m] [0m[0m  amount VARCHAR(25) NOT NULL,[0m
+[0m[[0m[0mdebug[0m] [0m[0m  PRIMARY KEY(id)[0m
+[0m[[0m[0mdebug[0m] [0m[0m)[0m
+[0m[[0m[0mdebug[0m] [0m[0mUpdate Count: 0[0m
+[0m[[0m[0mdebug[0m] [0m[0mSuccessfully completed migration of schema `test_provider` to version 1.3 - Add payment[0m
+[0m[[0m[0mdebug[0m] [0m[0mLocking table `test_provider`.`flyway_schema_history`...[0m
+[0m[[0m[0mdebug[0m] [0m[0mLock acquired for table `test_provider`.`flyway_schema_history`[0m
+[0m[[0m[0mdebug[0m] [0m[0mSchema history table `test_provider`.`flyway_schema_history` successfully updated to reflect changes[0m
+[0m[[0m[0minfo[0m] [0m[0mSuccessfully applied 1 migration to schema `test_provider` (execution time 00:00.046s)[0m

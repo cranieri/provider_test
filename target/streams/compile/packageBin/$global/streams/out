@@ -1,0 +1,37 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /Users/cosimoranieri/src/provider_test/target/scala-2.12/hello_2.12-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Main$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Main$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Main$TickActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Main$TickActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	db/migration[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Payments.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Payments.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	db/migration/V1.2__Add_user.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration/V1.2__Add_user.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Payment.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Payment.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	db/migration/V1.3__Add_payment.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db/migration/V1.3__Add_payment.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Payment$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Payment$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka/sample/Main$TickActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka/sample/Main$TickActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	db[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/db[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/lightbend/akka[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/cosimoranieri/src/provider_test/target/scala-2.12/classes/com/lightbend/akka[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
