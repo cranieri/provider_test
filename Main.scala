@@ -35,7 +35,7 @@ object Main extends App {
         val pw = new PrintWriter(new File("hello.txt" ))
 
         Await.result(db.run(payments.result), 10.seconds).foreach {
-          case (id, amount) => p => pw.write(p.amount)
+          case (id, amount) => println(amount)
         }
 
         pw.close
@@ -47,7 +47,39 @@ object Main extends App {
 
   system.scheduler.schedule(
     0 milliseconds,
-    2050 milliseconds,
+    5050 milliseconds,
     tickActor,
     Tick)
+}
+
+import com.spingo.op_rabbit.PlayJsonSupport._
+import com.spingo.op_rabbit._
+import play.api.libs.json._
+
+import scala.concurrent.ExecutionContext.Implicits.global
+case class Person(name: String, age: Int)
+
+object RabbitmqConsumer extends App {
+  implicit val actorSystem = ActorSystem("such-system")
+  val rabbitControl = actorSystem.actorOf(Props[RabbitControl])
+
+  // setup play-json serializer
+  implicit val personFormat = Json.format[Person]
+  implicit val recoveryStrategy = RecoveryStrategy.none
+
+  val subscriptionRef = Subscription.run(rabbitControl) {
+    import Directives._
+    // A qos of 3 will cause up to 3 concurrent messages to be processed at any given time.
+    channel(qos = 3) {
+      consume(topic(queue("such-message-queue"), List("some-topic.#"))) {
+        (body(as[Person]) & routingKey) { (person, key) =>
+          /* do work; this body is executed in a separate thread, as
+             provided by the implicit execution context */
+          println(s"""A person named '${person.name}' with age
+          ${person.age} was received over '${key}'.""")
+          ack
+        }
+      }
+    }
+  }
 }
