@@ -64,7 +64,7 @@ object RabbitmqConsumer extends App {
   val rabbitControl = actorSystem.actorOf(Props[RabbitControl])
 
   // setup play-json serializer
-  implicit val personFormat = Json.format[Person]
+  implicit val personFormat = Json.format[Payment]
   implicit val recoveryStrategy = RecoveryStrategy.none
 
   val subscriptionRef = Subscription.run(rabbitControl) {
@@ -72,11 +72,10 @@ object RabbitmqConsumer extends App {
     // A qos of 3 will cause up to 3 concurrent messages to be processed at any given time.
     channel(qos = 3) {
       consume(topic(queue("such-message-queue"), List("some-topic.#"))) {
-        (body(as[Person]) & routingKey) { (person, key) =>
+        (body(as[Payment]) & routingKey) { (payment, key) =>
           /* do work; this body is executed in a separate thread, as
              provided by the implicit execution context */
-          println(s"""A person named '${person.name}' with age
-          ${person.age} was received over '${key}'.""")
+          println(s"""A payment with amount '${payment.amount}' was received over '${key}'.""")
           ack
         }
       }
