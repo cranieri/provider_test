@@ -12,11 +12,12 @@ import akka.actor.Actor
 import akka.actor.Props
 import java.io._
 
-case class Payment(id: Int, amount: Int)
+case class Payment(id: Int, amount: Int, status: String)
 
 class Payments(tag: Tag) extends Table[(Int, Int)](tag, "payments") {
   def id = column[Int]("id",O.PrimaryKey, O.AutoInc)
   def amount = column[Int]("amount")
+  def status = column[String]("status")
   def * = (id, amount)
 }
 
@@ -34,8 +35,12 @@ object Main extends App {
 
         val pw = new PrintWriter(new File("hello.txt" ))
 
-        Await.result(db.run(payments.result), 10.seconds).foreach {
-          case (id, amount) => println(amount)
+        Await.result(db.run(payments.filter(_.status != "submitted").result), 10.seconds).foreach {
+          case (id, amount) => {
+            pw.write(s"""'${amount}'\n""")
+            val paymentToUpdate = for { p <- payments if p.id === id } yield p.status
+            val updateAction = db.run(paymentToUpdate.update("submitted"))
+          }
         }
 
         pw.close
