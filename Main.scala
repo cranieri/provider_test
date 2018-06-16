@@ -12,13 +12,14 @@ import akka.actor.Actor
 import akka.actor.Props
 import java.io._
 
-case class Payment(id: Int, amount: Int, status: String)
+case class Payment(id: Int, amount: Int, reference: String, status: String)
 
-class Payments(tag: Tag) extends Table[(Int, Int, String)](tag, "payments") {
+class Payments(tag: Tag) extends Table[(Int, Int, String, String)](tag, "payments") {
   def id = column[Int]("id",O.PrimaryKey, O.AutoInc)
   def amount = column[Int]("amount")
+  def reference = column[String]("reference")
   def status = column[String]("status")
-  def * = (id, amount, status)
+  def * = (id, amount, reference, status)
 }
 
 object Main extends App {
@@ -39,11 +40,11 @@ object Main extends App {
           val pw = new PrintWriter(new File(s"""payment_file${System.currentTimeMillis / 1000}.txt""" ),"UTF-8")
 
           res.foreach {
-            case (id, amount, status) => {
+            case (id, amount, reference, status) => {
               val paymentToUpdate = for { p <- payments if p.id === id } yield p.status
               val updateAction = db.run(paymentToUpdate.update("submitted"))
               println(amount)
-              pw.write(String.valueOf(s"""${amount}\n"""))
+              pw.write(String.valueOf(s"""${reference}|${amount}\n"""))
             }
           }
           pw.close
@@ -80,7 +81,7 @@ object RabbitmqConsumer extends App {
   implicit val personFormat = Json.format[PaymentMessage]
   implicit val recoveryStrategy = RecoveryStrategy.none
 
-  case class PaymentMessage(id: Int, amount: Int)
+  case class PaymentMessage(reference: String, amount: Int)
 
   val subscriptionRef = Subscription.run(rabbitControl) {
     import Directives._
@@ -95,7 +96,7 @@ object RabbitmqConsumer extends App {
           println(s"""A payment with amount '${payment.amount}' was received over '${key}'.""")
 
           val payments = TableQuery[Payments]
-          Await.result(db.run(DBIO.seq(payments += (0, payment.amount, "ready_to_send"))), 10.seconds)
+          Await.result(db.run(DBIO.seq(payments += (0, payment.amount, payment.reference, "released"))), 10.seconds)
 
           ack
         }
