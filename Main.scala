@@ -14,11 +14,11 @@ import java.io._
 
 case class Payment(id: Int, amount: Int, status: String)
 
-class Payments(tag: Tag) extends Table[(Int, Int)](tag, "payments") {
+class Payments(tag: Tag) extends Table[(Int, Int, String)](tag, "payments") {
   def id = column[Int]("id",O.PrimaryKey, O.AutoInc)
   def amount = column[Int]("amount")
   def status = column[String]("status")
-  def * = (id, amount)
+  def * = (id, amount, status)
 }
 
 object Main extends App {
@@ -33,17 +33,23 @@ object Main extends App {
 
         val payments = TableQuery[Payments]
 
-        val pw = new PrintWriter(new File("hello.txt" ))
+        val res = Await.result(db.run(payments.filter(_.status =!= "submitted").result), 10.seconds)
 
-        Await.result(db.run(payments.filter(_.status != "submitted").result), 10.seconds).foreach {
-          case (id, amount) => {
-            pw.write(s"""'${amount}'\n""")
-            val paymentToUpdate = for { p <- payments if p.id === id } yield p.status
-            val updateAction = db.run(paymentToUpdate.update("submitted"))
+        if (res.length > 5) {
+          val pw = new PrintWriter(new File(s"""payment_file${System.currentTimeMillis / 1000}.txt""" ),"UTF-8")
+
+          res.foreach {
+            case (id, amount, status) => {
+              val paymentToUpdate = for { p <- payments if p.id === id } yield p.status
+              val updateAction = db.run(paymentToUpdate.update("submitted"))
+              println(amount)
+              pw.write(String.valueOf(s"""${amount}\n"""))
+            }
           }
+          pw.close
+
         }
 
-        pw.close
       }
     }
   }
@@ -71,9 +77,10 @@ object RabbitmqConsumer extends App {
   val rabbitControl = actorSystem.actorOf(Props[RabbitControl])
 
   // setup play-json serializer
-  implicit val personFormat = Json.format[Payment]
+  implicit val personFormat = Json.format[PaymentMessage]
   implicit val recoveryStrategy = RecoveryStrategy.none
 
+  case class PaymentMessage(id: Int, amount: Int)
 
   val subscriptionRef = Subscription.run(rabbitControl) {
     import Directives._
@@ -82,13 +89,13 @@ object RabbitmqConsumer extends App {
     // A qos of 3 will cause up to 3 concurrent messages to be processed at any given time.
     channel(qos = 3) {
       consume(topic(queue("such-message-queue"), List("some-topic.#"))) {
-        (body(as[Payment]) & routingKey) { (payment, key) =>
+        (body(as[PaymentMessage]) & routingKey) { (payment, key) =>
           /* do work; this body is executed in a separate thread, as
              provided by the implicit execution context */
           println(s"""A payment with amount '${payment.amount}' was received over '${key}'.""")
 
           val payments = TableQuery[Payments]
-          Await.result(db.run(DBIO.seq(payments += (0, payment.amount))), 10.seconds)
+          Await.result(db.run(DBIO.seq(payments += (0, payment.amount, "ready_to_send"))), 10.seconds)
 
           ack
         }
